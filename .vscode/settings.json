@@ -1,4 +1,7 @@
 {
+    "cmake.configureOnOpen": false,
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.sourceDirectory": "${workspaceFolder}",
     "files.associations": {
         "*.c": "c",
         "*.cc": "cpp",
