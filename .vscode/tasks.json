@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: Build MySQL",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S",
+                "${workspaceFolder}",
+                "-B",
+                "${workspaceFolder}/build",
+                "-DCMAKE_INSTALL_PREFIX=/data/mysql",
+                "-DMYSQL_DATADIR=/data/mysql/data",
+                "-DSYSCONFDIR=/data/mysql/etc",
+                "-DWITH_INNOBASE_STORAGE_ENGINE=1",
+                "-DWITH_MYISAM_STORAGE_ENGINE=1",
+                "-DWITH_ARCHIVE_STORAGE_ENGINE=1",
+                "-DWITH_BLACKHOLE_STORAGE_ENGINE=1",
+                "-DWITH_PARTITION_STORAGE_ENGINE=1",
+                "-DWITH_READLINE=1",
+                "-DMYSQL_UNIX_ADDR=/data/mysql/mysqld/mysqld.sock",
+                "-DENABLED_LOCAL_INFILE=1",
+                "-DMYSQL_TCP_PORT=3306",
+                "-DEXTRA_CHARSETS=all",
+                "-DDEFAULT_CHARSET=utf8mb4",
+                "-DDEFAULT_COLLATION=utf8mb4_general_ci",
+                "-DDOWNLOAD_BOOST=1",
+                "-DWITH_BOOST=/home/chenhui/github/mysql-server-5.7/boost_1_59_0",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_C_FLAGS='-O0 -g -lpthread'",
+                "-DCMAKE_CXX_FLAGS='-O0 -g -std=c++11 -w -lpthread'"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Make: Build MySQL 5.7",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-C",
+                "${workspaceFolder}/build",
+                "-j1"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
