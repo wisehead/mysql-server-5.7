@@ -5,12 +5,15 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/include",
-                "/usr/local/include"
+                "/usr/local/include",
+                "${workspaceFolder}/build/include"
             ],
             "defines": [
                 "MUTEX_EVENT",
                 "UNIV_DEBUG",
-                "MYSQL_SERVER"
+                "MYSQL_SERVER",
+                "HAVE_REPLICATION",
+                "ENABLED_DEBUG_SYNC"
             ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
